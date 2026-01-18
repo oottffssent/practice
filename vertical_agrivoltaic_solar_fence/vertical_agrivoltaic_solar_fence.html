@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+  <style type="text/css">
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+    /*================== 
+         기본 리셋
+    ==================*/
+    :root {
+      --text-main: #1a1a1a;
+      --text-sub: #333;
+      --text-caption: #666;
+      --text-main-w: #fff;
+      --text-sub-w: #ddd;
+      --text-caption-w: #aaa;
+      --brand-red: #b52222;
+    }
+
+    html,body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,code,address,ul,ol,dl,li,dl,dt,dd,table,caption,th,td,form,fieldset,legend,hr,input,button,textarea{
+      margin:0; padding:0; word-break: keep-all !important; scroll-behavior: smooth;
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;}
+    ul,ol,li{list-style:none;}
+    img{border:0;}
+    li img,img{vertical-align:top; image-rendering:auto;}
+    hr{display:none;}
+    body {overflow-x: hidden; color: var(--text-main);}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 1320px 컨테이너 */
+    .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
+    /* 그리드 행 (PC: 12 column) */
+    .row {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        column-gap: 24px;
+        row-gap: 24px;
+    }
+    /* grid 레이아웃에서 쓸 col-* 리셋 */
+    .row > [class^="col-"],
+    .row > [class*=" col-"] {
+        float: none;
+        width: auto;
+        max-width: none;
+        padding: 0;
+    }
+      /* 컬럼 span (PC 기준) */
+    .col-1 { grid-column: span 1; }
+    .col-2 { grid-column: span 2; }
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 4; }
+    .col-5 { grid-column: span 5; }
+    .col-6 { grid-column: span 6; }
+    .col-7 { grid-column: span 7; }
+    .col-8 { grid-column: span 8; }
+    .col-9 { grid-column: span 9; }
+    .col-10 { grid-column: span 10; }
+    .col-11 { grid-column: span 11; }
+    .col-12 { grid-column: span 12; }
+
+    .tit_l { font-size: 72px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15;}
+    .tit_m { font-size: 60px; font-weight: 600;  letter-spacing: -0.02em; line-height: 1.15;}
+    .tit_s { font-size: 44px; font-weight: 600;  letter-spacing: -0.02em; line-height: 1.25;}
+    .txt_l { font-size: 28px; font-weight: 400;  letter-spacing: -0.02em; line-height: 1.4;}
+    .txt_m { font-size: 24px; font-weight: 400;  letter-spacing: -0.02em; line-height: 1.4;}
+    .txt_s { font-size: 20px; font-weight: 400;  letter-spacing: -0.02em; line-height: 1.4;}
+    .txt_light { font-weight: 400;}
+    .txt_bold { font-weight: 600;}
+    section{text-align: center; padding: 120px 0;}
+    h2{margin-bottom: 20px;}
+
+    @media (max-width: 768px) {
+      .row { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .col-6 { grid-column: span 6; }
+
+      .tit_l { font-size: 48px;}
+      .tit_m { font-size: 36px;}
+      .tit_s { font-size: 28px;}
+      .txt_l { font-size: 24px;}
+      .txt_m { font-size: 20px;}
+      .txt_s { font-size: 18px;}
+
+      section{text-align: center; padding: 80px 0;}
+    }
+
+    /*================== 
+          기본 리셋
+    ==================*/
+
+    /*section1 시작*/
+    .section1{background: url(img/vertical_agrivoltaic_solar_fence/section1_bg.png) center / cover no-repeat; color: var(--text-main-w);}
+    .section1 h3{color:var(--text-sub-w);}
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 32px;
+      margin-top: 40px;
+      border-radius: 999px;
+      background-color: #ffffff;
+      color: var(--text-sub);
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(10,40,60,0.25);
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .hero-btn:hover {
+      color: var(--text-main-w);
+      background-color: #222;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+    }
+    /*section1 끝*/
+    /*section2 시작*/
+    .section2 .sec2-sub{
+      color: var(--text-caption);
+    }
+    .agri-card{
+      margin-top: 60px;
+      max-width: 1320px;
+      border: 1px solid var(--text-sub-w);
+      border-radius: 24px;
+      padding: 60px 24px;
+    }
+    .agri-card__top{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .agri-pill{
+      color: var(--text-main-w);
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 34px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #1f1f1f 0%, var(--brand-red));
+      box-shadow: 0 8px 28px rgba(116, 0, 0, 0.2);
+    }
+    .agri-card__bottom{
+      margin-top: 36px;
+      color: var(--text-main);
+    }
+    /*section2 끝*/
+    /*section3 시작*/
+    .section3{
+      padding-top: 0;
+    }
+    .section3 h2{
+      margin-bottom: 60px;
+    }
+    .type-card__media{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9; /* 스샷 비율 느낌 */
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .type-card__media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform 300ms ease;
+    }
+    .type-card:hover .type-card__media img{
+      transform: scale(1.06);
+    }
+    .type-card__label{
+      margin-top: 8px;
+    }
+    /* 모바일: 1열로 (1개씩 2줄) */
+    @media (max-width: 768px){
+      .plus-icon img{
+        width: 40px;
+        height: 40px;
+      }
+    }
+        /*section3 끝*/
+        /*section4 시작*/
+        .section4{
+      background: #f5f5f5;
+    }
+
+    /* 탭 래퍼 */
+    .tab-wrap{
+      margin-top: 60px;
+      max-width: 1320px;
+    }
+
+    .tab-list{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+    }
+
+    .tab-btn{
+      border: 0;
+      background: var(--text-sub-w);
+      color: var(--tab-text);
+      padding: 22px 18px;
+      cursor: pointer;
+      border-radius: 24px 24px 0 0;
+    }
+    .tab-btn[aria-selected="true"]{
+      background: var(--brand-red);
+      color: var(--text-main-w);
+    }
+
+    /* 아래 흰 패널 */
+    .tab-panel{
+      background: #fff;
+      margin-top: 0;              /* 이미지처럼 탭 아래에 바로 붙게 */
+      padding: 60px 0;
+      border-radius: 0 0 24px 24px;
+    }
+
+    /* 패널 내부 2열(PC) */
+    .value-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+    }
+
+    /* 아이템 */
+    .value-item{
+      display: grid;
+      align-items: center;
+    }
+
+    /* 패널 전환 */
+    .tab-content{
+      display: none;
+    }
+    .tab-content.is-active{
+      display: block;
+    }
+
+    .value-ico{
+      margin-bottom: 20px;
+    }
+    /* 모바일: 1열로 (1개씩 2줄) */
+    @media (max-width: 768px){
+      .value-grid{
+        grid-template-columns: 1fr; /* 1열 */
+        gap: 18px;
+      }
+    }
+    /*section4 끝*/
+    /*section5 시작*/
+    .case-grid{
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 카드 */
+    .case-card{
+      text-align: center;
+    }
+
+    .case-media{
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .case-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform 300ms ease;
+    }
+
+    .case-card:hover .case-media img{
+      transform: scale(1.06);
+    }
+
+    .case-badge{
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      color: var(--text-sub-w);
+    }
+    .case-label{margin-top: 8px;}
+    /* CTA 배너 */
+    .sec5-cta{
+      margin-top: 60px;
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 80px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: url(img/vertical_agrivoltaic_solar_fence/section5_banner_bg.png);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+      color: var(--text-main-w);
+    }
+
+    .sec5-cta__text{
+      text-align: left;
+    }
+
+    .sec5-cta__btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 26px;
+      border-radius: 999px;
+      background: var(--brand-red);
+      color: var(--text-main-w);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 200ms ease, filter 200ms ease;
+    }
+
+    .sec5-cta__btn:hover{
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    /* 모바일에서도 2x2 유지 */
+    @media (max-width: 768px){
+      .case-grid{
+        margin-top: 28px;
+        gap: 12px;
+      }
+
+      .sec5-cta{
+        margin-top: 28px;
+        padding: 22px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .sec5-cta__btn{ width: 100%; justify-content: center; }
+
+    .sec5-cta__text{
+      text-align: center;
+    }
+    }
+    /*section5 end*/
+    /*section6 start*/
+    .section6{
+      position: relative;
+      color: var(--text-main-w);
+      background: url(img/vertical_agrivoltaic_solar_fence/section6_bg.png) center / cover no-repeat;
+    }
+    .section6 .list-inner{
+      display: flex;
+      flex-direction: column;
+    }
+    .section6::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .section6 .container{
+      position: relative;
+      z-index: 1;
+    }
+
+    .section6 h2{
+      margin-bottom: 60px;
+      color: var(--text-main-w);
+    }
+
+    .section6 li{
+      position: relative;
+      min-height: 200px;
+      border-radius: 24px;
+      overflow: hidden;
+
+      /* glass */
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      /* 중앙 정렬 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+      transition: background 220ms ease, color 220ms ease, transform 220ms ease, border-color 220ms ease;
+    }
+
+
+    /* list-p: 기본 숨김 */
+    .section6 li .list-p{
+      margin-top: 12px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 220ms ease, max-height 260ms ease, transform 220ms ease;
+    }
+
+    /* hover: 배경 흰색 + 텍스트 #222 + 내용 펼쳐짐 + 전체가 중앙 */
+    .section6 li:hover{
+      background: #fff;
+      border-color: rgba(255,255,255,0.6);
+      color: #222;
+      transform: translateY(-2px);
+    }
+
+    .section6 li:hover .list-p{
+      opacity: 1;
+      max-height: 140px;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px){
+      .section6 .row{
+        row-gap: 12px;
+      }
+
+      .section6 li{
+        min-height: 140px;
+        border-radius: 18px;
+        padding: 18px 14px;
+      }
+
+      .section6 li .list-p{
+        opacity: 1;
+        max-height: 200px;
+        overflow: visible;
+        transform: none;
+        font-size: 13px;
+      }
+    }
+    /*section6 end*/
+    /*section7 start*/
+    .section7 .sec7-title{
+      margin-bottom: 60px;
+    }
+    .cert-wrap{
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .cert-card{
+      position: relative;
+      max-width: 383px;               /* 요청 고정 */
+    }
+
+    /* 성적서 이미지에만 적용 */
+    .cert-card .cert-doc{
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* 뱃지: 텍스트+아이콘 가로 정렬 */
+    .cert-badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+    }
+
+    /* 뱃지 안 체크 아이콘은 block 금지 */
+    .cert-badge img{
+      display: inline-block;
+      width: 32px;
+      height: auto;
+      flex: 0 0 auto;
+    }
+
+    .cert-badge{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);  /* 이미지 위 가운데 */
+      background: var(--brand-red);
+      color: var(--text-main-w);
+      border-radius: 999px;
+      padding: 18px 30px;
+      white-space: nowrap;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28); /* 뱃지 그림자 */
+    }
+    .sec7-points{
+      margin-top: 60px;
+    }
+
+    .point-card{
+      border: 1px solid var(--text-sub-w);
+      border-radius: 24px;
+      background: #fff;
+      padding: 44px 28px;
+      text-align: center;
+    }
+
+    .point-badge{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 26px;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: var(--brand-red);
+      margin-bottom: 8px;
+    }
+
+    .point-subline{
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      color: var(--text-sub);
+    }
+
+    .point-check{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .point-check::before{
+      content: "✓";
+      display: inline-grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #8f2323;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    /* point03 하단 설명(불릿) */
+    .point-notes{
+      margin-top: 32px;
+      padding-left: 20px;
+      text-align: left;
+      color: var(--text-caption);
+    }
+
+    .point-notes li{
+      list-style: disc;
+      margin-left: 18px;
+    }
+    @media (max-width: 768px){
+        .cert-card img{width: 100%;}
+        .cert-doc{width: 24px;}
+        .cert-badge{padding: 8px;}
+    }
+    /*section7 end*/
+    /*section8n start*/
+    .section8{
+      background: #222;
+      position: relative;
+    }
+
+    .section8 .container{ position: relative; }
+
+    .sec8-title{
+      color: var(--text-main-w);
+      margin-bottom: 60px;
+    }
+    
+    .section8 h2{
+      margin-bottom: 0;
+    }
+    .section8 h3{
+      margin-bottom: 20px;
+    }
+    .sec8-desc{
+      color: var(--text-sub-w);
+    }
+
+    .sec8-media{
+      grid-column: 2 / span 10;
+    }
+
+    /* 영상: 16:9 반응형 */
+    .sec8-video{
+      border-radius: 24px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+      aspect-ratio: 16 / 9;
+    }
+    .sec8-video iframe{
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* 아래 빨간 박스 */
+    .sec8-redbox{
+      color: var(--text-main-w);
+      margin-top: 24px;
+      background: var(--brand-red);
+      border-radius: 24px;
+      padding: 26px 22px;
+    }
+
+    /* 1024px 이하: 12컬럼 꽉 채움 */
+    @media (max-width: 1024px){
+      .sec8-media{
+        grid-column: 1 / span 12;
+      }
+    }
+
+    /* 768px 이하: 그리드가 6컬럼이므로 6 꽉 채움 */
+    @media (max-width: 768px){
+      .sec8-media{
+        grid-column: 1 / span 6;
+      }
+      .sec8-video{ border-radius: 16px; }
+      .sec8-redbox{
+        border-radius: 14px;
+        padding: 18px 14px;
+      }
+    }
+  </style>
+  </head>
+<body>
+  <section id="section1" class="section1">
+    <h1 class="tit_l">영농형 수직 펜스 태양광</h1>
+    <h3 class="tit_s txt_light">Vertical Agrivoltaic Solar Fence</h3>
+    <a href="#landingForm" class="hero-btn">지원가능 여부 확인하기 →</a>
+  </section>
+  <section id="section2" class="section2">
+  <div class="container">
+    <h2 class="tit_m">영농형 태양광이란?</h2>
+    <p class="txt_m">
+      농지를 훼손하지 않고, 농업 활동을 유지한 채 태양광 발전을 병행하는 에너지 모델을 의미합니다.
+    </p>
+
+    <div class="agri-card">
+      <div class="agri-card__top tit_s">
+        <div class="agri-card__left">농업소득<span style="color: var(--brand-red);">100%</span></div>
+        <div class="plus-icon"><img src="img/vertical_agrivoltaic_solar_fence/plus.svg" alt="영농형 수직 펜스 태양광"></div>
+        <div class="agri-pill">부가 수익<img src="img/vertical_agrivoltaic_solar_fence/money.png" alt="영농형 수직 펜스 태양광"></div>
+      </div>
+
+      <div class="agri-card__bottom txt_l">
+        ‘농업소득에 <span style="color:var(--brand-red);">태양광 연금</span>을 더하다’
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section3" class="section3">
+  <div class="container">
+    <h2 class="tit_m">영농형 태양광 종류</h2>
+    <div class="row sec3-grid">
+      <div class="col-3 type-card">
+        <div class="type-card__media">
+          <img src="img/vertical_agrivoltaic_solar_fence/section3_img1.png" alt="루프형">
+        </div>
+        <div class="type-card__label txt_m txt_bold">루프형</div>
+      </div>
+      <div class="col-3 type-card">
+        <div class="type-card__media">
+          <img src="img/vertical_agrivoltaic_solar_fence/section3_img2.png" alt="수직펜스형(논)">
+        </div>
+        <div class="type-card__label txt_m txt_bold">수직펜스형(논)</div>
+      </div>
+      <div class="col-3 type-card">
+        <div class="type-card__media">
+          <img src="img/vertical_agrivoltaic_solar_fence/section3_img3.png" alt="수직펜스형(밭)">
+        </div>
+        <div class="type-card__label txt_m txt_bold">수직펜스형(밭)</div>
+      </div>
+      <div class="col-3 type-card">
+        <div class="type-card__media">
+          <img src="img/vertical_agrivoltaic_solar_fence/section3_img4.png" alt="토지형">
+        </div>
+        <div class="type-card__label txt_m txt_bold">토지형</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section4" class="section4">
+  <div class="container">
+    <h2 class="sec4-title tit_m">영농형 태양광으로 얻을 수 있는 가치</h2>
+
+    <div class="tab-wrap" data-tabs>
+      <!-- 탭 버튼 -->
+      <div class="tab-list" role="tablist" aria-label="영농형 태양광 가치 탭">
+        <button class="tab-btn txt_m txt_bold" role="tab" aria-selected="true" data-tab="tab1">
+          1. 농가 및 지역 단위 기대 효과
+        </button>
+        <button class="tab-btn txt_m txt_bold" role="tab" aria-selected="false" data-tab="tab2">
+          2. 지속가능한 환경으로서의 가치
+        </button>
+        <button class="tab-btn txt_m txt_bold" role="tab" aria-selected="false" data-tab="tab3">
+          3. 발전효율 및 농업 환경 영향
+        </button>
+      </div>
+
+      <!-- 패널 -->
+      <div class="tab-panel">
+        <!-- TAB 1 -->
+        <div class="tab-content is-active" id="tab1" role="tabpanel">
+          <div class="value-grid">
+            <div class="value-item">
+              <div class="value-ico">
+                <img src="img/vertical_agrivoltaic_solar_fence/section4_icon1.png" alt="">
+              </div>
+              <div>
+                <div class="value-title txt_l txt_bold">기존 농업 소득 유지 + 추가 수익</div>
+                <div class="value-desc txt_s">농업 수익을 유지하면서 발전 수익 확보</div>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-ico">
+                <img src="img/vertical_agrivoltaic_solar_fence/section4_icon2.png" alt="">
+              </div>
+              <div>
+                <div class="value-title txt_l txt_bold">지역 내 전력 자급 및 공급 안정성 강화</div>
+                <div class="value-desc txt_s">분산형 전원 확대로 지역 전력 안정성 확보</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2 -->
+        <div class="tab-content" id="tab2" role="tabpanel">
+          <div class="value-grid">
+            <div class="value-item">
+              <div class="value-ico">
+                <img src="img/vertical_agrivoltaic_solar_fence/section4_icon1.png" alt="">
+              </div>
+              <div>
+                <div class="value-title txt_l txt_bold">탄소 저감 및 재생에너지 확산</div>
+                <div class="value-desc txt_s">화석연료 대체로 온실가스 배출 감소</div>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-ico">
+                <img src="img/vertical_agrivoltaic_solar_fence/section4_icon1.png" alt="">
+              </div>
+              <div>
+                <div class="value-title txt_l txt_bold">농지 보전 기반의 지속가능한 개발</div>
+                <div class="value-desc txt_s">농업 활동을 유지하며 토지 훼손 최소화</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3 -->
+        <div class="tab-content" id="tab3" role="tabpanel">
+          <div class="value-grid">
+            <div class="value-item">
+              <div class="value-ico">
+                <img src="img/vertical_agrivoltaic_solar_fence/section4_icon1.png" alt="">
+              </div>
+              <div>
+                <div class="value-title txt_l txt_bold">발전 효율 최적화 설계 가능</div>
+                <div class="value-desc txt_s">배치/각도 설계를 통해 발전량 손실 최소화</div>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-ico">
+                <img src="img/vertical_agrivoltaic_solar_fence/section4_icon1.png" alt="">
+              </div>
+              <div>
+                <div class="value-title txt_l txt_bold">작물 생육 환경 영향 관리</div>
+                <div class="value-desc txt_s">일사량/그늘/풍환경 변화에 대한 설계 기준 적용</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /tab-panel -->
+    </div><!-- /tab-wrap -->
+  </div>
+</section>
+<section id="section5" class="section5">
+  <div class="container">
+    <div class="sec5-kicker tit_m txt_light">그랜드썬기술단만이 가능합니다.</div>
+    <h2 class="sec5-title tit_m">영농형 수직 펜스 태양광</h2>
+    <p class="sec5-desc txt_m">
+      총 200kW 규모 수직형 펜스 태양광 시스템을 구축하여<br>
+      작물 생육, 발전 효율, 구조물 안정성을 장기간 검증하였습니다.
+    </p>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-media">
+          <img src="img/vertical_agrivoltaic_solar_fence/case_rice.png" alt="논">
+          <div class="case-badge txt_s">대구 군위, 51.0kW</div>
+        </div>
+        <div class="case-label txt_m txt_bold">논</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-media">
+          <img src="img/vertical_agrivoltaic_solar_fence/case_field.png" alt="밭">
+          <div class="case-badge txt_s">대구 군위, 51.0kW</div>
+        </div>
+        <div class="case-label txt_m txt_bold">밭</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-media">
+          <img src="img/vertical_agrivoltaic_solar_fence/case_orchard.png" alt="과수원">
+          <div class="case-badge txt_s">대구 군위, 51.0kW</div>
+        </div>
+        <div class="case-label txt_m txt_bold">과수원</div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-media">
+          <img src="img/vertical_agrivoltaic_solar_fence/case_salt.png" alt="염전">
+          <div class="case-badge txt_s">전남 무안, 48.45kW</div>
+        </div>
+        <div class="case-label txt_m txt_bold">염전</div>
+      </div>
+    </div>
+
+    <div class="sec5-cta">
+      <div class="sec5-cta__text">
+        <div class="sec5-cta__title tit_s">검증된 데이터로 적합 구조를 검토해드립니다.</div>
+        <div class="sec5-cta__sub txt_m" style="color: var(--text-caption-w);">
+          간단한 정보만 입력해도 영농형 태양광 가능 여부를 빠르게 안내해드립니다.
+        </div>
+      </div>
+
+      <a class="sec5-cta__btn txt_m" href="#contact">무료 상담 바로가기 →</a>
+    </div>
+  </div>
+</section>
+<section id="section6" class="section6">
+  <div class="container">
+    <h2 class="tit_m txt_light">
+      수직 펜스 영농형은 왜 다를까요?<br><span class="tit_m txt_bold">경제성 확보 및 공간 보존 가능!</span>
+    </h2>
+
+    <ul class="row">
+      <li class="col-6">
+        <div class="list-inner">
+          <div class="list-title txt_l txt_bold">저렴한 시공비</div>
+          <div class="list-p txt_s">
+            불필요한 고가 구조물과 대형 토목 공정을 최소화하여<br>
+            합리적인 가격으로 태양광 설치가 가능합니다.
+          </div>
+        </div>
+      </li>
+
+      <li class="col-6">
+        <div class="list-inner">
+          <div class="list-title txt_l txt_bold">투자 회수 기간 단축</div>
+          <div class="list-p txt_s">투자 회수 기간이 단축됩니다.</div>
+        </div>
+      </li>
+
+      <li class="col-6">
+        <div class="list-inner">
+          <div class="list-title txt_l txt_bold">농작물 재배 면적 유지</div>
+          <div class="list-p txt_s">농작물 재배 면적 유지가 가능합니다.</div>
+        </div>
+      </li>
+
+      <li class="col-6">
+        <div class="list-inner">
+          <div class="list-title txt_l txt_bold">자유로운 농기계 이동</div>
+          <div class="list-p txt_s">자유로운 농기계 이동이 가능합니다.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<section id="section7" class="section7">
+  <div class="container">
+    <div class="sec7-title">
+      <div class="kicker tit_m txt_light">안심하고 설치하세요!</div>
+      <div class="headline tit_m">안정성·경제성 검증 완료</div>
+    </div>
+
+    <!-- grid(.row) 안 씀: cert-wrap 자체가 레이아웃 담당 -->
+    <div class="cert-wrap">
+      <div class="cert-card">
+        <img class="cert-doc" src="img/vertical_agrivoltaic_solar_fence/cert_structure.png" alt="구조 안정성 성적서">
+        <div class="cert-badge txt_m txt_bold">
+          구조 안정성 검증 완료 <img src="img/vertical_agrivoltaic_solar_fence/check.svg" style="width: 32px;" alt="구조 안정성 성적서">
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img class="cert-doc" src="img/vertical_agrivoltaic_solar_fence/cert_soil.png" alt="토양 안정성 성적서">
+        <div class="cert-badge txt_m txt_bold">
+          토양 안정성 검증 완료 <img src="img/vertical_agrivoltaic_solar_fence/check.svg" style="width: 32px;" alt="토양 안정성 성적서">
+        </div>
+      </div>
+    </div>
+
+    <div class="row sec7-points">
+      <!-- POINT 01 -->
+      <div class="col-12">
+        <div class="point-card">
+          <div class="point-badge txt_s">POINT 01</div>
+          <div class="point-title tit_s">토양 안정성 FITI 시험성적서 획득</div>
+
+          <div class="point-subline txt_m">
+            <span class="point-check">중금속 8종 전 항목 기준치 이내</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POINT 02 -->
+      <div class="col-12">
+        <div class="point-card">
+          <div class="point-badge txt_s">POINT 02</div>
+          <div class="point-title tit_s">구조 안정성 인증 완료</div>
+
+          <div class="point-subline txt_m">
+            <span class="point-check">시뮬레이션 기반 취약점 분석 및 구조 보강</span>
+            <span class="point-check">적극형 구조물 추가 개발</span>
+            <span class="point-check">내풍압 시험 50m/s 통과</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POINT 03 -->
+      <div class="col-12">
+        <div class="point-card">
+          <div class="point-badge txt_s">POINT 03</div>
+          <div class="point-title tit_s">영농형 태양광 수확 감소율 검증 완료</div>
+
+          <div class="point-subline txt_m">
+            <span class="point-check">벼 7.8%</span>
+            <span class="point-check">호밀 22.4%</span>
+            <span class="point-check">콩 6.9%</span>
+            <span class="point-check">보리/감자/사과 0%</span>
+          </div>
+
+          <ul class="point-notes txt_s">
+            <li>호밀 수확량은 짧은 동절기 일조 환경과 벼 추수 후 단단해진 논 지반 등 농지 본연의 환경 및 작물 생육 특성에 영향을 받는 것으로 확인</li>
+            <li>작물 수확 감소율 (논, 밭, 과수원) : 경북대학교</li>
+            <li>작물 수확 감소율 (조광장치 수확율 개선) : 에쓰오트</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section8" class="section8">
+  <div class="container">
+    <div class="sec8-title">
+      <h2 class="tit_m txt_light">농업소득 그 이상의 가치,</h2>
+      <h3 class="tit_m">그랜드썬기술단이 증명합니다.</h3>
+
+      <p class="txt_s sec8-desc">
+        그랜드썬기술단은 2021년부터 펜스형 영농형 태양광 연구 과제를 통해 실제 농지에서의 장기 실증 데이터를 축적해왔습니다.<br>
+        단순히 태양광을 설치하는 것을 넘어, 농가 수익 감소 문제를 정면으로 돌파합니다.<br>
+        낮은 작물 감소율과 농민 친화적 시스템으로 가장 농민다운 영농형 태양광을 실현하겠습니다.
+      </p>
+    </div>
+
+    <div class="row">
+      <!-- 영상 + 아래 빨간 박스: PC 10col(가운데), 1024↓ 12col, 768↓ 6col -->
+      <div class="col-10 sec8-media">
+        <div class="sec8-video">
+          <!-- 유튜브 링크만 바꿔서 사용 -->
+          <iframe
+            src="https://www.youtube.com/embed/rF-OcxUkNHw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="sec8-redbox txt_m">
+          정부 정책이 주목하는 농지·영농형 태양광,<br>
+          이제는 ‘할 수 있느냐’가 아니라 <b>‘누구와 함께하느냐’</b>가 성공을 결정합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    const wrap = document.querySelector('[data-tabs]');
+    if (!wrap) return;
+
+    const btns = wrap.querySelectorAll('.tab-btn');
+    const panels = wrap.querySelectorAll('.tab-content');
+
+    function activate(tabId) {
+      btns.forEach(b => b.setAttribute('aria-selected', b.dataset.tab === tabId ? 'true' : 'false'));
+      panels.forEach(p => p.classList.toggle('is-active', p.id === tabId));
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => activate(btn.dataset.tab));
+    });
+  })();
+</script>
+</body>
+</html>
