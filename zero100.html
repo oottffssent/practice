@@ -57,7 +57,12 @@
     @media (max-width: 768px) {
       .row { grid-template-columns: repeat(6, minmax(0, 1fr)); }
       .col-6 { grid-column: span 6; }
+      
+       h3 { font-family: 'Gmarket Sans'; font-size: 28px; letter-spacing: -0.02em; line-height: 1.25; }
+      .tit_s { font-size: 24px; letter-spacing: -0.02em; line-height: 1.25; }
     }
+
+
 /* =====================
         공통 끝
 ===================== */
@@ -149,13 +154,15 @@ a{font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.4; 
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-10px); }
 }
+
 @media (max-width: 768px){
-  .hero-zero100{ padding: 64px 0 80px; height: 720px; }
+  .hero-zero100{ padding: 64px 0 80px;}
   .hero-zero100__title{ display: block;}
   .hero-zero100__title-zero{ font-size: 120px; display: block;}
   .hero-zero100__title-num{ font-size: 160px; display: block;}
   .hero-zero100__inner h2{ font-size: 24px; }
   .hero-zero100__inner p{ font-size: 20px;}
+  .hero-btn{margin-top:40px;}
 }
 /* ========== SECTION 2 : ZERO 100 ========== */
 .sec-zero100{
@@ -328,7 +335,7 @@ a{font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.4; 
     left: -6px;
     transform: translate(-40%, -50%) scale(0.92);
   }
-  .hero-btn{margin-top:40px;}
+  .sec-zero100__total{ font-size: 60px; }
 }
 
     /* ========== SECTION 3 : Process ========== */
@@ -454,8 +461,9 @@ a{font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.4; 
   font-weight: 900;
 }
 
-/* 모바일 */
+/* section3~4 모바일 */
 @media (max-width: 768px) {
+  #section3 h1{ font-size: 40px;}
   .sec-process { padding: 64px 0 84px; }
 
   .step-list { gap: 18px; max-width: 100%; }
@@ -479,6 +487,9 @@ a{font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.4; 
     padding: 9px 14px;
     border-radius: 11px;
   }
+  #section4 h3{font-size:20px;}
+  #section4 h2{font-size:40px;}
+  #section4 .tit_s{font-size: 20px;}
 }
 #section5{
   padding-top: 120px;
@@ -506,6 +517,10 @@ a{font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.4; 
 #section5 ul li a:hover{
   background: #fff;
   color: #222;
+}
+/* section5 모바일 */
+@media (max-width: 768px) {
+#section5 h1{font-size: 40px;}
 }
 /* 랜딩폼 new */
 .landingForm {padding:124px 5%; background: #f6f6f6}
@@ -647,7 +662,7 @@ input[type=text]::-ms-clear { display:none; }
           </li>
         </ol>
 
-        <p class="sec-zero100__total txt_l">총 3000만원 상당!</p>
+        <p class="sec-zero100__total">총 3000만원 상당!</p>
         <p class="sec-zero100__note">
           본 혜택 금액은 1MW 태양광 발전소 기준으로 산정되었으며, 발전소 규모 및 조건에 따라 달라질 수 있습니다.
         </p>
