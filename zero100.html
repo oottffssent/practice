@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @import url('https://cdn.jsdelivr.net/gh/leetaewook/gmarket-sans-dynamic-subset/GmarketSans.css');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html{
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: #222;
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 24px;
+      row-gap: 24px;
+    }
+    .col-1  { grid-column: span 1; }
+    .col-2  { grid-column: span 2; }
+    .col-3  { grid-column: span 3; }
+    .col-4  { grid-column: span 4; }
+    .col-5  { grid-column: span 5; }
+    .col-6  { grid-column: span 6; }
+    .col-7  { grid-column: span 7; }
+    .col-8  { grid-column: span 8; }
+    .col-9  { grid-column: span 9; }
+    .col-10 { grid-column: span 10; }
+    .col-11 { grid-column: span 11; }
+    .col-12 { grid-column: span 12; }
+
+    h1 { font-family: 'Gmarket Sans'; font-size: 57px; letter-spacing: -0.02em; line-height: 1.15; }
+    h2 { font-family: 'Gmarket Sans'; font-size: 48px; letter-spacing: -0.02em; line-height: 1.2; }
+    h3 { font-family: 'Gmarket Sans'; font-size: 32px; letter-spacing: -0.02em; line-height: 1.25; }
+
+    p{font-size: 24px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.4;}
+
+    .tit_l { font-size: 60px; letter-spacing: -0.02em; line-height: 1.15; }
+    .tit_m { font-size: 48px; letter-spacing: -0.02em; line-height: 1.15; }
+    .tit_s { font-size: 32px; letter-spacing: -0.02em; line-height: 1.25; }
+    .txt_l { font-size: 24px; letter-spacing: -0.02em; line-height: 1.4; }
+    .txt_m { font-size: 20px; letter-spacing: -0.02em; line-height: 1.4; }
+    .txt_s { font-size: 16px; letter-spacing: -0.02em; line-height: 1.4; }
+    .text-center { text-align: center; }
+
+    @media (max-width: 768px) {
+      .row { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .col-6 { grid-column: span 6; }
+    }
+/* =====================
+        공통 끝
+===================== */
+/* ========== SECTION 1 : HERO ZERO100 ========== */
+.hero-zero100{
+  position: relative;
+  padding: 140px 0 120px;
+  overflow: hidden;
+  color: #fff;
+  background: url("img/zero100/section1_background.jpg") center / cover no-repeat;
+}
+.hero-zero100__inner{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-zero100__eyebrow{
+  margin: 0 0 18px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.88);
+  text-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* 타이틀(여기어때잘난체) */
+.hero-zero100__title{
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 18px;
+  font-family: "yg-jalnan", "Pretendard", system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.04em;
+  filter: drop-shadow(0 22px 40px rgba(0,0,0,0.35));
+  transform: rotate(-6deg);
+  margin: 60px 0;
+}
+
+.hero-zero100__title-zero{
+  font-size: 180px;
+  color: rgba(255,255,255,0.90);
+  text-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.hero-zero100__title-num{
+  font-size: 240px;
+  background: linear-gradient(90deg, #23f4ff 0%, #52ff9f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.hero-zero100__sub{
+  margin: 24px 0 0;
+  color: rgba(255,255,255,0.90);
+  text-shadow: 0 14px 34px rgba(0,0,0,0.25);
+}
+
+.hero-zero100__sub strong{
+  font-weight: 900;
+}
+
+/* CTA 버튼 */
+a{font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.4; color: #222;}
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 32px;
+  margin-top: 60px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #222;
+  text-decoration: none;
+  border: 1px solid #3C7DEB;
+  box-shadow: 0 14px 30px rgba(10,40,60,0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  animation: floatY 2.4s ease-in-out infinite;
+}
+.hero-btn:hover {
+  color: #ffffff;
+  background-color: #222;
+  border: 1px solid #222;
+  box-shadow: 0 14px 30px rgba(230,209,166,0.25);
+  transform: translateY(-2px);
+  animation-play-state: paused;
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@media (max-width: 768px){
+  .hero-zero100{ padding: 64px 0 80px; height: 400px; }
+  .hero-zero100__title{ gap: 12px; }
+  .hero-zero100__title-zero{ font-size: 60px; display: block;}
+  .hero-zero100__title-num{ font-size: 80px; display: block;}
+  .hero-zero100__inner h2{ font-size: 24px; }
+  .hero-zero100__inner p{ font-size: 16px;}
+}
+/* ========== SECTION 2 : ZERO 100 ========== */
+.sec-zero100{
+  position: relative;
+  padding: 96px 0 88px;
+  color: #fff;
+  background: #0b0c0e;
+  overflow: hidden;
+}
+
+.sec-zero100__head{
+  text-align: center;
+}
+
+.sec-zero100__eyebrow{
+  margin: 0 0 18px;
+  color: rgba(40, 200, 255, 0.85);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sec-zero100__logo{
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: "yg-jalnan", "Pretendard", system-ui, -apple-system, sans-serif;
+}
+
+.sec-zero100__logo-zero{
+  font-size: 120px;
+  letter-spacing: -0.04em;
+  color: rgba(255,255,255,0.88);
+  text-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.sec-zero100__logo-num{
+  font-size: 160px;
+  letter-spacing: -0.04em;
+  background: linear-gradient(90deg, #47f1ff 0%, #3dff9c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.sec-zero100__sub{
+  margin: 18px 0 0;
+  color: rgba(255,255,255,0.78);
+}
+
+.sec-zero100__slash{
+  margin-left: 8px;
+  color: rgba(255,255,255,0.95);
+  font-weight: 800;
+}
+
+.sec-zero100__lead{
+  margin: 60px 0 40px;
+  color: rgba(255,255,255,0.88);
+}
+
+/* 리스트 */
+.benefit-list{
+  list-style: none;
+  padding: 0;
+  margin: 44px auto 0;
+  max-width: 520px; /* 이미지처럼 가운데 한 줄로 */
+  display: grid;
+  gap: 16px;
+}
+
+.benefit-item{
+  position: relative;
+  display: grid;
+  align-items: center;
+}
+/* CTA 버튼 */
+.benefit-cta{
+  position: absolute;
+  inset: 0;                /* ← 핵심 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  font-size: 24px;
+  background: rgba(255,255,255,1);  /* 어두운 오버레이 */
+  text-decoration: none;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+.benefit-item:hover .benefit-cta,
+.benefit-item:focus-within .benefit-cta{
+  opacity: 1;
+  pointer-events: auto;
+}
+.benefit-item:hover .benefit-pill{
+  opacity: 0.3;
+}
+/* 왼쪽 자물쇠(겹치게) */
+.benefit-lock{
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 14px 30px rgba(0,0,0,0.45));
+  opacity: 0.95;
+  z-index: 5;
+}
+
+.benefit-pill{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 40px 22px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.75);
+  background: rgba(0,0,0,0.22);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.benefit-tag{
+  font-weight: 400;
+  color: rgba(40, 200, 255, 0.95);
+  letter-spacing: -0.01em;
+}
+
+.benefit-value{
+  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: -0.02em;
+}
+
+.sec-zero100__total{
+  font-family: "yg-jalnan", "Pretendard", system-ui, -apple-system, sans-serif;
+  font-size: 72px;
+  margin: 56px 0 0;
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 20px 60px rgba(0,0,0,0.55);
+}
+
+.sec-zero100__note{
+  font-size: 16px;
+  font-weight: 300;
+  margin: 12px auto 0;
+  text-align: center;
+  max-width: 720px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+
+/* 모바일 */
+@media (max-width: 768px){
+  .sec-zero100{ padding: 72px 0 66px; }
+
+  .sec-zero100__logo-zero{ font-size: 60px; }
+  .sec-zero100__logo-num{ font-size: 80px; }
+  
+
+  .benefit-list{ max-width: 100%; padding: 0 6px; }
+  .benefit-pill{ padding: 16px 16px; gap: 14px; }
+
+  .benefit-lock{
+    left: -6px;
+    transform: translate(-40%, -50%) scale(0.92);
+  }
+}
+
+    /* ========== SECTION 3 : Process ========== */
+.sec-process {
+  position: relative;
+  padding: 120px 0;
+  color: #fff;
+  overflow: hidden;
+  background: #05070c;
+}
+
+/* 배경 이미지 */
+.sec-process::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("img/zero100/section4_background.jpg") center/cover no-repeat;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* 상단 텍스트가 배경 위로 올라오게 */
+.sec-process .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.sec-process__eyebrow {
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 10px;
+}
+
+.sec-process__title {
+  font-size: 82px;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.sec-process__desc {
+  margin: 40px 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+.sec-process__desc-strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.sec-process__steps {
+  margin-top: 44px;
+}
+
+/* step list */
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  gap: 26px;
+  max-width: 540px;
+}
+
+/* 카드 */
+.step-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  padding: 26px 26px 24px;
+  color: #111;
+}
+
+.step-inner {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: center;
+  gap: 18px;
+}
+
+/* 좌상단 STEP 칩 */
+.step-chip {
+  position: absolute;
+  top: -14px;
+  left: 18px;
+  background: #20a8de;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 24px rgba(32, 168, 222, 0.35);
+}
+
+/* 아이콘 영역 */
+.step-icon {
+  width: 92px;
+  height: 92px;
+  display: grid;
+  place-items: center;
+}
+
+.step-icon img {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  display: block;
+}
+
+/* 텍스트 */
+.step-title {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.step-desc {
+  margin: 10px 0 0;
+  color: rgba(17, 17, 17, 0.75);
+}
+
+.step-highlight {
+  color: #20a8de;
+  font-weight: 900;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .sec-process { padding: 64px 0 84px; }
+
+  .step-list { gap: 18px; max-width: 100%; }
+
+  .step-card { padding: 22px 18px 18px; border-radius: 16px; }
+
+  .step-inner {
+    grid-template-columns: 70px 1fr;
+    gap: 14px;
+  }
+
+  .step-icon, .step-icon img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .step-chip {
+    top: -12px;
+    left: 14px;
+    font-size: 13px;
+    padding: 9px 14px;
+    border-radius: 11px;
+  }
+}
+#section5{
+  padding-top: 120px;
+}
+#section5 li{
+  display: inline-block;
+  position: relative;
+}
+
+#section5 ul li a{
+  border: 1px solid rgba(255,255,255,0.4);
+  width: 160px;
+  padding: 12px 0;
+  border-radius: 27px;
+  background: rgba(0,0,0,0.4);
+  display: block;
+  cursor: pointer;
+  position: absolute; left: 50%;
+  top: 50%;               /* ✅ 기본: li 중앙 */
+  transform: translate(-50%, 0); /* ✅ 중앙 보정 */
+  backdrop-filter: blur(8px);
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+}
+#section5 ul li a:hover{
+  background: #fff;
+  color: #222;
+}
+/* 랜딩폼 new */
+.landingForm {padding:124px 5%; background: #f6f6f6}
+.langdingform_wrap {max-width: 1000px; margin:0 auto}
+.landingForm .form_control_wrap {display: block !important; width:auto !important; margin:-10px}
+.landingForm .fitem_group {display: flex !important; flex-wrap: wrap;}
+.landingForm .fitem {flex:1; min-width: 50%; padding:10px}
+.landingForm .fitem dt {padding:.4em .5em; font-size:20px; color:#2c4c88}
+.landingForm .fitem dd {font-size:20px}
+.landingForm .fitem .form-control {width: 100%; height:3em; padding:0 1em; border:0; line-height:3em; font-size:1em; background:#fff; color:#737475; border-radius: .25em}
+.landingForm .fitem select {height:3em; width:100%; padding:0 1em; border:0; font-size:1em; background:#fff; color:#737475; border-radius: .25em; background:#fff url('/img/financial_support/select_nav_icon.png') no-repeat 93% center; background-size: .65em auto;}
+.landingForm .fitem textarea {box-sizing:border-box; height:8.75em; width: 100%; padding:1em; border:0; font-size:1em; background:#fff; resize: none; color:#737475; border-radius: .25em}
+.landingForm .form_agree_wrap {font-size:20px; padding:1.7em 1.7em .7em; }
+.landingForm .form_agree_wrap * {font-size:1em}
+.landingForm .form_agree_wrap .agree_all {border-bottom:1px solid #d9d9d9; padding:0.7em 0; }
+.landingForm .form_agree_wrap .agree_list {padding:1em 1.7em;}
+.landingForm .form_agree_wrap .item_check {position: relative; display: inline-block; padding-left:1.5em; line-height:2; font-size:1em; color:#2d2d2d; cursor: pointer}
+.landingForm .form_agree_wrap .item_check a {font-size:1em; color:inherit; font-weight: 400}
+.landingForm .form_agree_wrap .item_check input {position: absolute; width:0; height:0; overflow: hidden; opacity: 0}
+.landingForm .form_agree_wrap .item_check i {position: absolute; top:.45em; left:0; width:1em; height:1em; background:#fff;}
+.landingForm .form_agree_wrap .item_check i:after {display: none; position: absolute; left:.3em; top:.1em; width:.4em; height:.6em; border:2px solid #5a92fb; border-top:0; border-left:0; transform: rotate(45deg); content:''; }
+.landingForm .form_agree_wrap .item_check input:checked ~ i:after {display: block}
+.landingForm .form_agree_wrap .agree_all .item_check {font-weight: bold}
+.landingForm .btn_wrap {margin-top:20px; text-align: center}
+.landingForm a.btn_f01 {display: inline-block; padding:1em 4em; font-size:1.3em; color:#fff; background:#5a92fb; cursor: pointer; transition: .3s; border-radius: 9999px;}
+.landingForm a.btn_f01:hover {color:#fff; background: #444; box-shadow: 0 14px 30px rgba(10,40,60,0.25);}
+/* 01 end */
+#landingForm ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#landingForm a{
+  text-decoration: none;
+}
+input[type=text]::-ms-clear { display:none; }
+  </style>
+</head>
+
+<body>
+<section id="section1" class="hero-zero100" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 hero-zero100__inner">
+        <h2>2026년 1분기 특별 프로모션!</h2>
+
+        <h1 id="hero-title" class="hero-zero100__title" aria-label="ZERO 100">
+          <span class="hero-zero100__title-zero">ZERO</span>
+          <span class="hero-zero100__title-num">100</span>
+        </h1>
+        <p class="tit_s">
+          초기자본 0원으로 · 100% 수익까지 완성하는 <strong>제로백</strong>
+        </p>
+        <a href="#landingForm" class="hero-btn">
+          지원가능 여부 확인하기 →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+  
+<section id="section2" class="sec-zero100" aria-labelledby="sec2-title">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 sec-zero100__head">
+        <h3>2026년 1분기 특별 프로모션</h3>
+
+        <!-- 로고형 타이틀 -->
+        <h2 id="sec2-title" class="sec-zero100__logo">
+          <span class="sec-zero100__logo-zero">ZERO</span>
+          <span class="sec-zero100__logo-num">100</span>
+        </h2>
+
+        <p class="sec-zero100__sub txt_l">
+          초기자본 0원으로 수익까지 100%! <span class="sec-zero100__slash">제 / 로 / 백</span>
+        </p>
+
+        <p class="sec-zero100__lead tit_s">
+          발전소 시작부터 운영까지,<br />
+          <span style="background: linear-gradient(90deg, #23f4ff 0%, #52ff9f 100%); color: #222; font-weight: 600; padding: 0 12px; border-radius: 4px;">꼭 필요한 것만 모은 5가지 혜택!</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <ol class="benefit-list" role="list">
+          <li class="benefit-item">
+            <img class="benefit-lock" src="img/zero100/section2_lock.png">
+            <div class="benefit-pill">
+              <span class="benefit-tag txt_l">혜택1</span>
+              <span class="benefit-value tit_s">1500만원 상당</span>
+            </div>
+            <a href="#landingForm" class="benefit-cta">
+              혜택 보러 가기 →
+            </a>
+          </li>
+          <li class="benefit-item">
+            <img class="benefit-lock" src="img/zero100/section2_lock.png">
+            <div class="benefit-pill">
+              <span class="benefit-tag txt_l">혜택2</span>
+              <span class="benefit-value tit_s">700만원 상당</span>
+            </div>
+            <a href="#landingForm" class="benefit-cta">
+              혜택 보러 가기 →
+            </a>
+          </li>
+          <li class="benefit-item">
+            <img class="benefit-lock" src="img/zero100/section2_lock.png">
+            <div class="benefit-pill">
+              <span class="benefit-tag txt_l">혜택3</span>
+              <span class="benefit-value tit_s">500만원 상당</span>
+            </div>
+            <a href="#landingForm" class="benefit-cta">
+              혜택 보러 가기 →
+            </a>
+          </li>
+
+          <li class="benefit-item">
+            <img class="benefit-lock" src="img/zero100/section2_lock.png">
+            <div class="benefit-pill">
+              <span class="benefit-tag txt_l">혜택4</span>
+              <span class="benefit-value tit_s">200만원 상당</span>
+            </div>
+            <a href="#landingForm" class="benefit-cta">
+              혜택 보러 가기 →
+            </a>
+          </li>
+
+          <li class="benefit-item">
+            <img class="benefit-lock" src="img/zero100/section2_lock.png">
+            <div class="benefit-pill">
+              <span class="benefit-tag txt_l">혜택5</span>
+              <span class="benefit-value tit_s">100만원 상당</span>
+            </div>
+            <a href="#landingForm" class="benefit-cta">
+              혜택 보러 가기 →
+            </a>
+          </li>
+        </ol>
+
+        <p class="sec-zero100__total txt_l">총 3000만원 상당!</p>
+        <p class="sec-zero100__note">
+          본 혜택 금액은 1MW 태양광 발전소 기준으로 산정되었으며, 발전소 규모 및 조건에 따라 달라질 수 있습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+  <section id="section3" style="text-align: center; background: #0b0c0e;">
+        <h1 style="color: #fff;"><span style="font-weight: 400;">총 5가지 혜택 중 1가지,</span><br>지금 선공개합니다!</h1>
+        <a href="#landingForm"><img src="img/zero100/section3_lock.png" alt="" style="padding: 40px 0;"></a>
+  </section>
+  <section id="section4" class="sec-process" aria-labelledby="sec4-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3 style="color:#3BC4FF; font-weight:500; padding-bottom: 20px;">2026년 1분기 프로모션 선공개 혜택!</h3>
+          <h2 id="sec3-title" class="sec-process__title">가속선시공 프로세스</h2>
+          <p class="sec-process__desc tit_s">
+            무상인허가부터 선시공까지!<br>
+            <strong class="sec-process__desc-strong">초기자본 0원으로 시작</strong>하세요!
+          </p>
+        </div>
+      </div>
+
+      <div class="row sec-process__steps">
+        <div class="col-12">
+          <ol class="step-list" role="list">
+            <li class="step-card">
+              <span class="step-chip">STEP 1</span>
+              <div class="step-inner">
+                <div class="step-icon" aria-hidden="true">
+                  <img src="img/zero100/icon_1.png" alt="" />
+                </div>
+                <div class="step-text">
+                  <h3 class="step-title t-title">
+                    인허가 <span class="step-highlight">무상선진행</span>
+                  </h3>
+                  <p class="step-desc">
+                    개발행위·발전사업허가 등<br />
+                    인허가 비용 전액 무상 지원
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="step-card">
+              <span class="step-chip">STEP 2</span>
+              <div class="step-inner">
+                <div class="step-icon" aria-hidden="true">
+                  <img src="img/zero100/icon_2.png" alt="" />
+                </div>
+                <div class="step-text">
+                  <h3 class="step-title">후 계약금 납입</h3>
+                  <p class="step-desc">
+                    모든 인허가 완료된 이후<br />
+                    계약금 10% 납입
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="step-card">
+              <span class="step-chip">STEP 3</span>
+              <div class="step-inner">
+                <div class="step-icon" aria-hidden="true">
+                  <img src="img/zero100/icon_3.png" alt="" />
+                </div>
+                <div class="step-text">
+                  <h3 class="step-title">가속선시공 착수</h3>
+                  <p class="step-desc">
+                    계약금 10% 납입 즉시,<br />
+                    선시공 진행
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li class="step-card">
+              <span class="step-chip">STEP 4</span>
+              <div class="step-inner">
+                <div class="step-icon" aria-hidden="true">
+                  <img src="img/zero100/icon_4.png" alt="" />
+                </div>
+                <div class="step-text">
+                  <h3 class="step-title">발전소 운영 개시</h3>
+                  <p class="step-desc">
+                    빠른 상업 운전 개시로<br />
+                    조기 수익 실현
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="section5" style="background: #111; text-align: center; padding-bottom: 120px;">
+    <h1 style="font-weight: 400; color: #fff; padding-bottom: 60px;">나머지 <span style="font-weight:800;">시크릿 혜택</span>도 궁금하다면?</h1>
+    <ul>
+      <li>
+        <img src="img/zero100/section5_lock.png" alt="">
+        <a href="#landingForm" style="text-decoration: none;">혜택2</a>
+      </li>
+      <li>
+        <img src="img/zero100/section5_lock.png" alt="">
+        <a href="#landingForm" style="text-decoration: none;">혜택3</a>
+      </li>
+      <li>
+        <img src="img/zero100/section5_lock.png" alt="">
+        <a href="#landingForm" style="text-decoration: none;">혜택4</a>
+      </li>
+      <li>
+        <img src="img/zero100/section5_lock.png" alt="">
+        <a href="#landingForm" style="text-decoration: none;">혜택5</a>
+      </li>
+    </ul>
+  </section>
+  <!-- form area start	 -->
+<div id="landingForm" class="landingForm" >
+  <div class="langdingform_wrap">
+    <form method="post"  name="myorder" id="insert_form" onsubmit="return trackingSubmit('promotion_7_32');">
+        <input type="hidden" name="m_mode" id="m_mode" value="OK"  />
+        <input type="hidden"  class="form-control"   name="m_posi"  value="제로백 프로모션"  id="recipient-posi"  />
+        <div class="form_control_wrap">
+            <div class="fitem_group">
+                <dl class="fitem">
+                    <dt>성함 *</dt>
+                    <dd>
+                        <input type="text" class="form-control"  name="m_name" id="recipient-name"   placeholder="" required >
+                    </dd>
+                </dl>
+                <dl  class="fitem">
+                    <dt>연락처 *</dt>
+                    <dd>
+                        <input type="tel" class="form-control  bfh-phone" data-format="ddd-dddd-dddd" name="m_tel" id="recipient-tel"  placeholder="" required >
+                    </dd>
+                </dl>
+                <dl class="fitem">
+                    <dt>문의유형 *</dt>
+                    <dd>
+                        <select name="m_type" id="recipient-type" required>
+							<option value="제로백 프로모션">제로백 프로모션</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="fitem">
+                    <dt>사업지 주소</dt>
+                    <dd>
+                        <input type="text" class="form-control"  name="m_mail" id="recipient-mail"  placeholder=""  >
+                    </dd>
+                </dl>
+            </div>
+            <div class="fitem_group">
+                <dl class="fitem">
+                    <dt>문의내용 *</dt>
+                    <dd>
+                        <textarea class=""  name="m_txt" id="recipient-txt" required></textarea>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="form_agree_wrap">
+            <div class="agree_all">
+                <label class="item_check">
+                    <input type="checkbox" value="1"  id="agree_all">  
+                    <i></i>
+                    모두 동의합니다.
+                </label>
+            </div>
+            <ul class="agree_list">
+                <li>
+                    <label class="item_check">
+                        <input type="checkbox" value="1"  id="agree1">  
+                        <i></i>
+                        <a href="#">개인정보 수집 및 이용을 확인하고 동의합니다.</a>
+                    </label>
+                </li>
+                <li>
+                    <label class="item_check">
+                        <input type="checkbox" value="1"  id="agree2">  
+                        <i></i>
+                        <a href="#">프로모션 정보 수신 동의<span style="font-size: 18px; color: #3C7DEB;">(선택)</a>
+                    </label>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="btn_wrap">
+            <a  class="btn_f01"  id="landing-submit" onclick=qalog_oqa();>상담문의하기</a>  
+        </div>
+       
+   </form>
+  </div>
+</div>
+<!--ee form area end	 --><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const agreeAll = document.getElementById('agree_all');
+  const agreeItems = [
+    document.getElementById('agree1'),
+    document.getElementById('agree2')
+  ];
+
+  // 전체 동의 클릭 시
+  agreeAll.addEventListener('change', function () {
+    agreeItems.forEach(item => {
+      item.checked = agreeAll.checked;
+    });
+  });
+
+  // 개별 동의 변경 시 (전체 동의 상태 갱신)
+  agreeItems.forEach(item => {
+    item.addEventListener('change', function () {
+      agreeAll.checked = agreeItems.every(i => i.checked);
+    });
+  });
+});
+</script>
+</body>
+</html>
