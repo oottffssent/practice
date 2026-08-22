@@ -40,7 +40,7 @@ $(function () {
      화면 밖에 있는 active 메뉴를 가운데로 끌어온다 */
   function centerActiveMenu(el) {
     if (!el) return;
-    if (!window.matchMedia('(max-width: 767px)').matches) return;
+    if (!window.matchMedia('(max-width: 768px)').matches) return;
 
     var list = document.querySelector('.gnb__list');
     if (!list || list.scrollWidth <= list.clientWidth) return;
@@ -103,7 +103,7 @@ $(function () {
      iOS Safari 에서는 실제로 막히므로, 해당 목록을 예외로 등록한다.
      (데스크톱에서는 5개 메뉴가 모두 보여 가로 스크롤이 필요 없고,
       메뉴 위에서 휠 스크롤이 잠기는 부작용만 생기므로 모바일에서만 적용) */
-  if (window.matchMedia('(max-width: 767px)').matches) {
+  if (window.matchMedia('(max-width: 768px)').matches) {
     fpOptions.normalScrollElements = '.gnb__list';
   }
 
@@ -142,7 +142,7 @@ $(function () {
   /* 768px 미만 : 카드가 리스트 형태로 바뀌고 CTA 버튼이 없으므로
      첫 탭에 곧바로 상세 섹션으로 이동한다 */
   function isMobileList() {
-    return window.matchMedia('(max-width: 767px)').matches;
+    return window.matchMedia('(max-width: 768px)').matches;
   }
 
   function goToTarget($card) {
