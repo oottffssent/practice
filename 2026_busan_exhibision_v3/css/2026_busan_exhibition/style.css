@@ -61,8 +61,9 @@
   --fs-5: clamp(18px, 1.30vw, 25px);   /* 이름(소) · 보조 설명 */
   --fs-6: clamp(19px, 1.55vw, 30px);   /* 카피 · 설명문 */
   --fs-7: clamp(22px, 2.2vw, 45px);   /* 디렉터 이름 */
-  --fs-8: clamp(32px, 3.9vw, 68px);   /* 섹션 타이틀 */
-  --fs-9: clamp(140px, 15vw, 288px);   /* 대형 배경 키워드 */
+  --fs-8: clamp(26px, 3.2vw, 54px);   /* 섹션 타이틀 */
+  --fs-9: clamp(32px, 3.9vw, 68px);   /* 타이틀 */
+  --fs-10: clamp(140px, 15vw, 288px);   /* 대형 배경 키워드 */
 
   /* 대형 배경 키워드는 섹션마다 글자 수가 달라 배율만 따로 준다 */
   --bigtext-scale: 1;
@@ -544,7 +545,10 @@ img { display: block; max-width: 100%; }
 }
 
 .director-card__btn--dark { background: rgba(0,0,0,.75); }
-.director-card__btn--gold { background: var(--color-gold); }
+.director-card__btn--gold {
+  background: var(--color-gold);
+  color: #16171A;              /* 골드 배경 위 가독성 */
+}
 
 /* ---- Hover / Active(터치) 상태 ---- */
 .director-card::before {
@@ -1135,9 +1139,18 @@ img { display: block; max-width: 100%; }
     line-height: 1.08;
   }
 
-  .hero__eyebrow {
+  /* 모바일에서는 타이틀 아래 문구로 .hero__sub-text 를 쓴다 */
+  .hero__eyebrow { display: none; }
+
+  .hero__sub {
+    display: flex;
     order: 3;
+    justify-content: center;
     margin: 0;
+  }
+
+  .hero__sub-text {
+    display: inline;
     font-weight: 700;
     letter-spacing: -0.4px;
   }
@@ -1162,10 +1175,6 @@ img { display: block; max-width: 100%; }
     transform: translateX(-50%);
     pointer-events: none;
   }
-
-  /* 서브 카피는 뱃지 옆이 아니라 타이틀 아래로 내려가므로 모바일에서는 숨김
-     (같은 역할을 .hero__eyebrow 가 대신함) */
-  .hero__sub-text { display: none; }
 
   /* ---- 선물 배너 : 풀블리드 다크 바 ---- */
   .gift-card {
@@ -1251,8 +1260,8 @@ img { display: block; max-width: 100%; }
     scroll-snap-align: start;
   }
 
-  /* 끝까지 스크롤했을 때 마지막 메뉴가 우측 페이드에 가리지 않도록 여유 */
-  .gnb__list > li:last-child { margin-right: 28px; }
+  /* 끝까지 스크롤했을 때 마지막 메뉴가 우측 페이드에 가리지 않도록 여유
+  .gnb__list > li:last-child { margin-right: 28px; } */
 
   .gnb__item {
     gap: 0;
@@ -1278,7 +1287,9 @@ img { display: block; max-width: 100%; }
   #fullpage .section.detail {
     position: relative;
     height: 100vh;                 /* [SNAP] */
-    padding: calc(var(--gnb-h) + clamp(10px, 2.4vh, 22px)) 20px clamp(14px, 2.4vh, 24px);
+    padding: calc(var(--gnb-h) + 32px) 20px 0 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   #fullpage .section.detail.is-empty { height: 100vh; padding: 0; }
@@ -1292,12 +1303,6 @@ img { display: block; max-width: 100%; }
      화면이 짧아지면 체크리스트가 아니라 인물이 먼저 줄어든다.
      ========================================================== */
   :root { --detail-pad-b: clamp(12px, 2.2vh, 22px); }
-
-  #fullpage .section.detail {
-    display: flex;
-    flex-direction: column;
-    padding: calc(var(--gnb-h) + clamp(16px, 6.9vh, 54px)) clamp(18px, 6.7vw, 30px) var(--detail-pad-b);
-  }
 
   /* 위→아래 그라디언트 (PC 는 좌→우) */
   .detail__overlay {
@@ -1353,7 +1358,6 @@ img { display: block; max-width: 100%; }
     gap: 10px;
   }
 
-
   .detail__cta {
     height: clamp(40px, 6.1vh, 50px);
     min-height: 40px;
@@ -1381,20 +1385,6 @@ img { display: block; max-width: 100%; }
     object-fit: contain;
     object-position: left bottom;
   }
-
-  /* ---- 하단 : 대형 배경 텍스트 (인물 뒤) ---- */
-  .detail__bigtext {
-    left: 0;
-    right: 0;
-    top: auto;
-    bottom: clamp(128px, 22.4vh, 200px);
-    transform: none;
-    align-items: center;
-  }
-
-
-  #section3 .detail__bigtext-key { }
-  #section5 .detail__bigtext-key { }
 
   /* ---- 하단 : 디렉터 정보 (우측 하단 고정) ---- */
   .detail__director {
@@ -1449,15 +1439,9 @@ img { display: block; max-width: 100%; }
     margin-bottom: 1px;
   }
 
-
   .detail__director--pair .detail__director-rank {
     margin-left: 3px;
   }
-
-  /* 키워드 2개도 좌/우로 벌려 각 인물 위에 오도록 */
-  .detail__bigtext--duo { align-items: stretch; padding: 0 3vw; }
-  .detail__bigtext--duo .detail__bigtext-key:nth-child(1) { align-self: flex-start; }
-  .detail__bigtext--duo .detail__bigtext-key:nth-child(2) { align-self: flex-end; }
 
   /* ==========================================================
      [Mobile] Section 1 : 디렉터 리스트
@@ -1594,12 +1578,16 @@ img { display: block; max-width: 100%; }
     height: 20px;
   }
 
+  /* 인물 뒤 대형 배경 키워드는 모바일에서 노출하지 않음 */
+  .detail__bigtext { display: none; }
+
+  .director-card__m-name { display: none; }
+
   /* 모바일 시안에는 하단 안내바가 없음 */
   .guide-bar { display: none; }
 }
 
 /* 초소형 단말(320px 등) : 질문 문구가 1줄로 유지되도록 여백·아바타 축소 */
-
 
 /* 모션 최소화를 선호하는 사용자에게는 애니메이션 해제 */
 @media (prefers-reduced-motion: reduce) {
@@ -1684,6 +1672,7 @@ img { display: block; max-width: 100%; }
 
 /* --fs-3 : 메뉴 · 리스트 항목 */
 .gnb__field,
+.director-card__btn,
 .director-card__role,
 .detail__checklist li span,
 .director-card__m-cat,
@@ -1692,15 +1681,13 @@ img { display: block; max-width: 100%; }
 
 /* --fs-4 : 강조 배지 · CTA */
 .hero__meta,
-.director-card__btn,
 .detail__director-rank,
-.detail__director--pair
 .detail__director--pair .detail__director-rank,
+.director-card__m-title,
 .hero__badge              { font-size: var(--fs-4); }
 
 /* --fs-5 : 이름(소) · 보조 설명 */
 .director-card__name,
-.director-card__m-title,
 .gift-card__main,
 .hero__sub-text,
 .detail__director-role,
@@ -1717,15 +1704,26 @@ img { display: block; max-width: 100%; }
 .detail__director-name,
 .detail__director--pair .detail__director-name   { font-size: var(--fs-7); }
 
-/* --fs-8 : 섹션 타이틀 (모바일 50%) */
-.hero__title,
-.detail__title                    { font-size: var(--fs-8); }
+/* --fs-7 : sec2~6 타이틀 */
+.detail__title{ font-size: var(--fs-8); }
 
-/* --fs-9 : 대형 배경 키워드 (모바일 50%) */
-.detail__bigtext-key              { font-size: calc(var(--fs-9) * var(--bigtext-scale)); }
+/* --fs-9 : 섹션 타이틀 (모바일 50%) */
+.hero__title                    { font-size: var(--fs-9); }
+
+/* --fs-10: 대형 배경 키워드 (모바일 50%) */
+.detail__bigtext-key              { font-size: calc(var(--fs-10) * var(--bigtext-scale)); }
 
 /* 글자 수가 많은 섹션은 배율만 낮춘다 */
 #section3 { --bigtext-scale: .64; }   /* 10,000+ / 99% 2줄 */
 #section4 { --bigtext-scale: 1.07; }  /* RE100 5자 */
 #section5,
 #section6 { --bigtext-scale: .78; }   /* 20 YEARS / PARTNERS 8자 */
+
+
+
+/* ---- 모바일 전용 타이포 오버라이드 ----
+    PC 비율은 그대로 두고 모바일에서만 조정한다 */
+@media (max-width: 768px) {
+.hero__meta { font-size: var(--fs-2); }
+.gift-card__main { font-size: var(--fs-4); }   /* 모바일만 한 단계 작게 */
+}
