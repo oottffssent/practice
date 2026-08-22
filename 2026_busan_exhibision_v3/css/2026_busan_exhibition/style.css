@@ -1726,4 +1726,5 @@ img { display: block; max-width: 100%; }
 @media (max-width: 768px) {
 .hero__meta { font-size: var(--fs-2); }
 .gift-card__main { font-size: var(--fs-4); }   /* 모바일만 한 단계 작게 */
+.detail__desc { font-size: var(--fs-5); }
 }
